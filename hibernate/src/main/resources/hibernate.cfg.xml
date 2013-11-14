@@ -1,8 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
-<!DOCTYPE hibernate-configuration PUBLIC
-        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
-<?xml version='1.0' encoding='utf-8'?>
+
 <!DOCTYPE hibernate-configuration PUBLIC
         "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
@@ -11,7 +7,9 @@
     <!-- Database connection settings, Connect to HSQL, IN Memory  -->
     <property name="dialect">org.hibernate.dialect.HSQLDialect</property>
     <property name="connection.driver_class">org.hsqldb.jdbcDriver</property>
-    <property name="connection.url">jdbc:hsqldb:mem:test</property>
+<!--     <property name="connection.url">jdbc:hsqldb:mem:test</property> -->
+<!--     <property name="connection.url">jdbc:hsqldb:file:MyDB</property> -->
+    <property name="connection.url">jdbc:hsqldb:file:build/dev;shutdown=true;hsqldb.write_delay=false</property>
     <property name="connection.username">sa</property>
     <property name="connection.password"></property>
 
@@ -20,7 +18,12 @@
      <property name="show_sql">true</property><property name="format_sql">true</property>
      <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
      <!--create the database schema on startup if required -->
-     <property name="hbm2ddl.auto">update</property>
-     <mapping resource="hibernate/mappings.xml"></mapping>
+<!--      <property name="hbm2ddl.auto">update</property> -->
+<!--      <property name="hbm2ddl.auto">validate</property> -->
+     <property name="hbm2ddl.auto">create-drop</property>
+     <property name="hsqldb.write_delay">false</property>
+     
+     <property name="hsqldb.write_delay_millis">false</property>
+     <mapping resource="mappings.xml"></mapping>
   </session-factory>
 </hibernate-configuration>
