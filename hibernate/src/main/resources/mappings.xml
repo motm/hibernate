@@ -4,13 +4,13 @@
   
 
 <hibernate-mapping>
-    <class name="hibernate.Contact" table="contact">
-         <id name="contactId" type="java.lang.Integer">
-             <column name="CONTACT_ID" />
-             <generator class="identity" />
-         </id>
-         <property name="name" type="string">
-             <column name="NAME" length="10" not-null="true" unique="true" />
-         </property>
-       </class>
+<!--     <class name="hibernate.Contact" table="contact"> -->
+<!--          <id name="contactId" type="java.lang.Integer"> -->
+<!--              <column name="CONTACT_ID" /> -->
+<!--              <generator class="identity" /> -->
+<!--          </id> -->
+<!--          <property name="name" type="string"> -->
+<!--              <column name="NAME" length="10" not-null="true" unique="true" /> -->
+<!--          </property> -->
+<!--        </class> -->
 </hibernate-mapping>
