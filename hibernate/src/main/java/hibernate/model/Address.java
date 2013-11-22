@@ -1,33 +1,33 @@
-package hibernate;
+package hibernate.model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
 @Entity
 public class Address {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer pk;
+	private Long id;
 
 	@Column(name = "strasse")
 	private String street;
 
 	@Column(name = "type")
+	@Enumerated(EnumType.STRING)
 	private AddressType addressType;
-
-	public Integer getPk() {
-		return pk;
+	
+	public Long getId() {
+		return id;
 	}
 
-	public void setPk(Integer pk) {
-		this.pk = pk;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getStreet() {
@@ -46,7 +46,4 @@ public class Address {
 		this.addressType = addressType;
 	}
 	
-	
-
-
 }

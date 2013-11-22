@@ -1,4 +1,4 @@
-package hibernate;
+package hibernate.model;
 
 public enum AddressType {
 	PRIMARY,

@@ -1,10 +1,12 @@
 package hibernate;
 
+import hibernate.model.Address;
+import hibernate.model.Contact;
+import hibernate.util.HibernateUtil;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-
-import javax.swing.plaf.ListUI;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;

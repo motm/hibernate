@@ -1,4 +1,4 @@
-package hibernate;
+package hibernate.model;
 
 import java.io.Serializable;
 import java.util.List;
@@ -21,24 +21,24 @@ public class Contact implements Serializable {
 	private static final long serialVersionUID = -7376809874547102466L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer contactId;
+	private Integer id;
 	@Column(nullable=true)
 	private String name;
 	
 	@OneToMany(cascade=CascadeType.ALL)
-	@JoinColumn(name="jc2")
+	@JoinColumn(name="address_id")
 	private List<Address> address;
 
 	public Contact() {
 
 	}
 
-	public Integer getContactId() {
-		return contactId;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setContactId(Integer contactId) {
-		this.contactId = contactId;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getName() {
