@@ -1,12 +1,13 @@
 package hibernate.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Address {
@@ -18,9 +19,12 @@ public class Address {
 	@Column(name = "strasse")
 	private String street;
 
-	@Column(name = "type")
-	@Enumerated(EnumType.STRING)
+	//@Column(name = "type")
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="fk_addresstype")
 	private AddressType addressType;
+	
+	
 	
 	public Long getId() {
 		return id;
