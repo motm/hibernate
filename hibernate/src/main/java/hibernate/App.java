@@ -12,9 +12,6 @@ import org.hibernate.Transaction;
 
 public class App {
 	public static void main(String[] args) {
-		System.out.println("Maven + Hibernate + HSQL");
-		Session session = HibernateUtil.getSessionFactory().openSession();
-		session.beginTransaction();
 		App app = new App();
 		app.saveContact("Jiya");
 		app.saveContact("Manisha");
@@ -30,18 +27,8 @@ public class App {
 		try {
 			transaction = session.getTransaction();
 			Contact contact = new Contact();
-//			Address address = new Address();
-			
-//			address.setStreet("street " + contactName);
 			contact.setName(contactName);
-//			address.setContact(contact);
-			
-//			List<Address> l = new ArrayList<Address>();
-//			l.add(address);
-//			contact.setAddress(l);
-//			contactId = (Integer) session.save(address);
 			contactId = (Integer) session.save(contact);
-			
 			
 			transaction.commit();
 		} catch (HibernateException e) {
@@ -55,9 +42,7 @@ public class App {
 
 	public void listContact() {
 		Session session = HibernateUtil.getSessionFactory().openSession();
-		Transaction transaction = null;
 		try {
-			transaction = session.beginTransaction();
 			@SuppressWarnings("unchecked")
 			List<Contact> contactList = session.createQuery("from Contact")
 					.list();
@@ -66,9 +51,7 @@ public class App {
 				Contact contact = (Contact) iterator.next();
 				System.out.println(contact.getName());
 			}
-			transaction.commit();
 		} catch (HibernateException e) {
-			transaction.rollback();
 			e.printStackTrace();
 		} finally {
 			session.close();
