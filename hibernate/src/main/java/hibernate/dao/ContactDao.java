@@ -20,4 +20,10 @@ public class ContactDao extends AbstractDao<Contact> {
 		return criteria.add(Restrictions.like("name", name)).list();
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<Contact> loadAll() {
+		Criteria criteria = session.createCriteria(Contact.class);
+		return criteria.list();
+	}
+
 }

@@ -12,5 +12,7 @@ public interface ContactService {
 	
 	public List<Contact> load(String name);
 	
+	public List<Contact> loadAll();
+	
 
 }

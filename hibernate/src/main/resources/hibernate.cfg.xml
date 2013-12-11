@@ -26,7 +26,7 @@
      <property name="hsqldb.write_delay_millis">false</property>
      
      <mapping class="hibernate.model.Contact"></mapping>
-     <mapping class="hibernate.model.Address"></mapping>
+<!--      <mapping class="hibernate.model.Address"></mapping> -->
 
 <!--      <mapping resource="mappings.xml"></mapping> -->
   </session-factory>

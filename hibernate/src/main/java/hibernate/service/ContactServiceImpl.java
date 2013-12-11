@@ -36,6 +36,12 @@ public class ContactServiceImpl implements ContactService {
 	}
 
 
+	@Override
+	public List<Contact> loadAll() {
+		return contactDao.loadAll();
+	}
+
+
 
 
 }

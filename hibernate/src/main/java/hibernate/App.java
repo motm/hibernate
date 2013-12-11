@@ -1,10 +1,8 @@
 package hibernate;
 
-import hibernate.model.Address;
 import hibernate.model.Contact;
 import hibernate.util.HibernateUtil;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -32,16 +30,16 @@ public class App {
 		try {
 			transaction = session.getTransaction();
 			Contact contact = new Contact();
-			Address address = new Address();
+//			Address address = new Address();
 			
-			address.setStreet("street " + contactName);
+//			address.setStreet("street " + contactName);
 			contact.setName(contactName);
 //			address.setContact(contact);
 			
-			List<Address> l = new ArrayList<Address>();
-			l.add(address);
-			contact.setAddress(l);
-			contactId = (Integer) session.save(address);
+//			List<Address> l = new ArrayList<Address>();
+//			l.add(address);
+//			contact.setAddress(l);
+//			contactId = (Integer) session.save(address);
 			contactId = (Integer) session.save(contact);
 			
 			
